@@ -53,18 +53,19 @@ class ProfileApp(HydraHeadApp):
             g = Github("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")
 
             for repo in g.get_user().get_repos():
-                print(repo.name)
+                st.write(repo.name)
             
             asim_code = g.get_repo("fartak-ai/first-project")
             contents = asim_code.get_contents("")
             
             for content in contents:
-                print(content)
+                st.write(content)
             
             
             # Update a file in the repository
             # .decoded_content.decode() Return file content
-            contents = repo.get_contents(path="Authenticator_config.yaml") # , ref="fartak-ai/first-project"
+            contents = repo.get_contents(path="Authenticator_config.yaml") 
+            st.write("contents")
             
             repo.update_file(contents.path, "test", f"{contents.decoded_content.decode()} \nText I wannaaaaaa store ", contents.sha, branch="main")
             # repo.update_file(path=contents.path, message="", content= , sha=contents.sha, branch="main")
