@@ -3,28 +3,14 @@ import os
 from typing import Dict
 import streamlit as st
 from hydralit import HydraHeadApp
+from github import Github
+from github import Auth
 
 import yaml
 import streamlit as st
 from yaml.loader import SafeLoader
 import streamlit.components.v1 as components
 
-
-# from .utils import check_usr_pass
-# from .utils import load_lottieurl
-# from .utils import check_valid_name
-# from .utils import check_valid_email
-# from .utils import check_unique_email
-# from .utils import check_unique_usr
-# from .utils import register_new_usr
-# from .utils import check_email_exists
-# from .utils import generate_random_passwd
-# from .utils import send_passwd_in_email
-# from .utils import change_passwd
-# from .utils import check_current_passwd
-# from .utils import create_connection
-# from .utils import create_table
-# from .utils import show_user_info
 
 MENU_LAYOUT = [1,1,1,7,2]   
 
@@ -39,6 +25,20 @@ class ProfileApp(HydraHeadApp):
         self.title = title
         self.config = config
         self.authenticator = authenticator
+
+        try:
+            # using an access token
+            auth = Auth.Token("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")
+            
+            # Public Web Github
+            g = Github(auth=auth)
+
+            self.repo = g.get_repo("fartak-ai/DentalScanning-test")
+        
+        except:
+            st.write("can't do it.")
+
+        
  
 
     def run(self) -> None:
@@ -166,6 +166,11 @@ class ProfileApp(HydraHeadApp):
         with open('data/Authenticator_config.yaml', 'w') as file:
             yaml.dump(self.config, file, default_flow_style=False)
 
+
+        # Update a file in the repository
+        # .decoded_content.decode() Return file content
+        contents = self.repo.get_contents(path="data/Authenticator_config.yaml")
+        repo.update_file(path=contents.path, message="register new user", content=self.config , sha=contents.sha, branch="main")
 
         st.write(self.config)
 
