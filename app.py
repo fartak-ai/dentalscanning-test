@@ -63,6 +63,8 @@ if __name__ == '__main__':
         config['preauthorized']
         )
 
+    st.write(authenticator)
+
     #Home button will be in the middle of the nav list now
     app.add_app("Home", icon="🏠", app=apps.HomeApp(user_access_level, title='Home'), is_home=True)
 
