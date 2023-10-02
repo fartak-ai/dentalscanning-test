@@ -1,0 +1,9 @@
+hydralit 
+hydralit_components 
+streamlit 
+numpy
+spacy-streamlit
+opencv-python
+streamlit-image-comparison
+streamlit-authenticator
+PyGithub
