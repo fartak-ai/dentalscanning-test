@@ -28,7 +28,7 @@ class ProfileApp(HydraHeadApp):
 
         try:
             # using an access token
-            auth = Auth.Token("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")
+            auth = Auth.Token("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")
             st.write("auth success")            
             # Public Web Github
             g = Github(auth=auth)
