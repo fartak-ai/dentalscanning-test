@@ -34,6 +34,8 @@ class ProfileApp(HydraHeadApp):
             g = Github(auth=auth)
             st.write("g successfully.")
 
+            st.write(g.get_repo("fartak-ai/first-project"))
+
             # self.repo = g.get_repo("fartak-ai/DentalScanning-test")
             self.repo = g.get_repo("fartak-ai/first-project")       
             st.write("repo success.")
