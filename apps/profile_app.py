@@ -49,29 +49,7 @@ class ProfileApp(HydraHeadApp):
         # except:
         #     st.write("can't do it.")
 
-        try:
-            self.g = Github("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")
 
-            for self.repo in self.g.get_user().get_repos():
-                st.write(self.repo.name)
-            
-            self.asim_code = self.g.get_repo("fartak-ai/first-project")
-            self.contents = self.asim_code.get_contents("")
-            
-            for content in self.contents:
-                st.write(content)
-            
-            
-            # Update a file in the repository
-            # .decoded_content.decode() Return file content
-            contents = repo.get_contents(path="Authenticator_config.yaml") 
-            st.write("contents")
-            
-            repo.update_file(contents.path, "test", f"{contents.decoded_content.decode()} \nText I wannaaaaaa store ", contents.sha, branch="main")
-            # repo.update_file(path=contents.path, message="", content= , sha=contents.sha, branch="main")
-
-        except:
-           st.write("can't do it.")
             
 
         
@@ -205,10 +183,10 @@ class ProfileApp(HydraHeadApp):
 
         # Update a file in the repository
         # .decoded_content.decode() Return file content
-        contents = self.repo.get_contents(path="data/Authenticator_config.yaml")
-        st.write("contents success")
-        self.repo.update_file(path=contents.path, message="register new user", content=self.config , sha=contents.sha, branch="main")
-        st.write("update successfully.")
+        # contents = self.repo.get_contents(path="data/Authenticator_config.yaml")
+        # st.write("contents success")
+        # self.repo.update_file(path=contents.path, message="register new user", content=self.config , sha=contents.sha, branch="main")
+        # st.write("update successfully.")
 
         st.write(self.config)
 
