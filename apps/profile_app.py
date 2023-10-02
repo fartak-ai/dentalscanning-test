@@ -34,10 +34,7 @@ class ProfileApp(HydraHeadApp):
             g = Github(auth=auth)
             st.write("g successfully.")
 
-            # self.repo = g.get_repo("fartak-ai/DentalScanning-test")
-            for repo in g.get_user().get_repos():
-                # print(repo.name)
-                pass
+            self.repo = g.get_repo("fartak-ai/DentalScanning")
             st.write("repo success.")
         
         except:
