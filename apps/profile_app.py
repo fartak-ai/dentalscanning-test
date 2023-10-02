@@ -32,6 +32,7 @@ class ProfileApp(HydraHeadApp):
             st.write("auth success")            
             # Public Web Github
             g = Github(auth=auth)
+            st.write("g successfully.")
 
             self.repo = g.get_repo("fartak-ai/DentalScanning-test")
             st.write("repo success.")
