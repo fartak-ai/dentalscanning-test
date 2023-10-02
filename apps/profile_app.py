@@ -18,7 +18,7 @@ MENU_LAYOUT = [1,1,1,7,2]
 
 class ProfileApp(HydraHeadApp):
     
-    def __init__(self, app, config, authenticator, title = '', **kwargs):
+    def __init__(self, app, config, authenticator, title = '', repo=None, **kwargs):
         
         self.app = app
         self.__dict__.update(kwargs)
@@ -34,7 +34,7 @@ class ProfileApp(HydraHeadApp):
             g = Github(auth=auth)
             st.write("g successfully.")
 
-            repo = g.get_repo("fartak-ai/DentalScanning-test")
+            self.repo = g.get_repo("fartak-ai/DentalScanning-test")
             st.write("repo success.")
         
         except:
