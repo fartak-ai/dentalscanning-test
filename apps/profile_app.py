@@ -167,6 +167,9 @@ class ProfileApp(HydraHeadApp):
             yaml.dump(self.config, file, default_flow_style=False)
 
 
+        st.write(self.config)
+
+
 
 
 
