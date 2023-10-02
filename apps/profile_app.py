@@ -29,11 +29,12 @@ class ProfileApp(HydraHeadApp):
         try:
             # using an access token
             auth = Auth.Token("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")
-            
+            st.write("auth success")            
             # Public Web Github
             g = Github(auth=auth)
 
             self.repo = g.get_repo("fartak-ai/DentalScanning-test")
+            st.write("repo success.")
         
         except:
             st.write("can't do it.")
@@ -170,7 +171,9 @@ class ProfileApp(HydraHeadApp):
         # Update a file in the repository
         # .decoded_content.decode() Return file content
         contents = self.repo.get_contents(path="data/Authenticator_config.yaml")
+        st.write("contents success")
         self.repo.update_file(path=contents.path, message="register new user", content=self.config , sha=contents.sha, branch="main")
+        st.write("update successfully.")
 
         st.write(self.config)
 
