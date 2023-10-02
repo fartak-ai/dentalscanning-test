@@ -26,28 +26,20 @@ class ProfileApp(HydraHeadApp):
         self.config = config
         self.authenticator = authenticator
 
-        # try:
-        #     # using an access token
-        #     auth = Auth.Token("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")
-        #     st.write("auth success")            
-        #     # Public Web Github
-        #     g = Github(auth=auth)
-        #     st.write("g successfully.")
+        try:
+            # using an access token
+            auth = Auth.Token("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")
+            st.write("auth success")            
+            # Public Web Github
+            g = Github(auth=auth)
+            st.write("g successfully.")
 
-        #     # self.repo = g.get_repo("fartak-ai/DentalScanning-test")
-        #     for repo in g.get_user().get_repos():
-        #         st.write(repo.name)
-            
-        #     asim_code = g.get_repo("fartak-ai/first-project")
-        #     contents = asim_code.get_contents("")
-            
-        #     for content in contents:
-        #         st.write(content)
-                
-        #     st.write("repo success.")
+            # self.repo = g.get_repo("fartak-ai/DentalScanning-test")
+            self.repo = g.get_repo("fartak-ai/first-project")       
+            st.write("repo success.")
                     
-        # except:
-        #     st.write("can't do it.")
+        except:
+            st.write("can't do it.")
 
 
             
