@@ -170,7 +170,7 @@ class ProfileApp(HydraHeadApp):
         # Update a file in the repository
         # .decoded_content.decode() Return file content
         contents = self.repo.get_contents(path="data/Authenticator_config.yaml")
-        repo.update_file(path=contents.path, message="register new user", content=self.config , sha=contents.sha, branch="main")
+        self.repo.update_file(path=contents.path, message="register new user", content=self.config , sha=contents.sha, branch="main")
 
         st.write(self.config)
 
