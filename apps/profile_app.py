@@ -26,28 +26,52 @@ class ProfileApp(HydraHeadApp):
         self.config = config
         self.authenticator = authenticator
 
-        try:
-            # using an access token
-            auth = Auth.Token("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")
-            st.write("auth success")            
-            # Public Web Github
-            g = Github(auth=auth)
-            st.write("g successfully.")
+        # try:
+        #     # using an access token
+        #     auth = Auth.Token("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")
+        #     st.write("auth success")            
+        #     # Public Web Github
+        #     g = Github(auth=auth)
+        #     st.write("g successfully.")
 
-            # self.repo = g.get_repo("fartak-ai/DentalScanning-test")
+        #     # self.repo = g.get_repo("fartak-ai/DentalScanning-test")
+        #     for repo in g.get_user().get_repos():
+        #         st.write(repo.name)
+            
+        #     asim_code = g.get_repo("fartak-ai/first-project")
+        #     contents = asim_code.get_contents("")
+            
+        #     for content in contents:
+        #         st.write(content)
+                
+        #     st.write("repo success.")
+                    
+        # except:
+        #     st.write("can't do it.")
+
+        try:
+            g = Github("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")
+
             for repo in g.get_user().get_repos():
-                st.write(repo.name)
+                print(repo.name)
             
             asim_code = g.get_repo("fartak-ai/first-project")
             contents = asim_code.get_contents("")
             
             for content in contents:
-                st.write(content)
-                
-            st.write("repo success.")
-                    
+                print(content)
+            
+            
+            # Update a file in the repository
+            # .decoded_content.decode() Return file content
+            contents = repo.get_contents(path="Authenticator_config.yaml") # , ref="fartak-ai/first-project"
+            
+            repo.update_file(contents.path, "test", f"{contents.decoded_content.decode()} \nText I wannaaaaaa store ", contents.sha, branch="main")
+            # repo.update_file(path=contents.path, message="", content= , sha=contents.sha, branch="main")
+
         except:
-            st.write("can't do it.")
+           st.write("can't do it.")
+            
 
         
  
