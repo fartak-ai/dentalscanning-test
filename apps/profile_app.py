@@ -38,7 +38,7 @@ class ProfileApp(HydraHeadApp):
             for repo in g.get_user().get_repos():
                 st.write(repo.name)
             
-            asim_code = g.get_user().get_repo("fartak-ai/first-project")
+            asim_code = g.get_repo("fartak-ai/first-project")
             contents = asim_code.get_contents("")
             
             for content in contents:
