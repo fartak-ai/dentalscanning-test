@@ -50,15 +50,15 @@ class ProfileApp(HydraHeadApp):
         #     st.write("can't do it.")
 
         try:
-            g = Github("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")
+            self.g = Github("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")
 
-            for repo in g.get_user().get_repos():
-                st.write(repo.name)
+            for self.repo in self.g.get_user().get_repos():
+                st.write(self.repo.name)
             
-            asim_code = g.get_repo("fartak-ai/first-project")
-            contents = asim_code.get_contents("")
+            self.asim_code = self.g.get_repo("fartak-ai/first-project")
+            self.contents = self.asim_code.get_contents("")
             
-            for content in contents:
+            for content in self.contents:
                 st.write(content)
             
             
