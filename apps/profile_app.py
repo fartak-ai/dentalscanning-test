@@ -37,7 +37,7 @@ class ProfileApp(HydraHeadApp):
             # st.write(g.get_repo("fartak-ai/first-project"))
 
             # self.repo = g.get_repo("fartak-ai/DentalScanning-test")
-            self.repo = g.get_repo("fartak-ai/first-project")       
+            self.repo = g.get_repo("fartak-ai/dentalscanning-test")       
             st.write("repo success.")
                     
         except:
