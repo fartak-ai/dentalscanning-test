@@ -34,9 +34,18 @@ class ProfileApp(HydraHeadApp):
             g = Github(auth=auth)
             st.write("g successfully.")
 
-            self.repo = g.get_repo("fartak-ai/DentalScanning")
+            # self.repo = g.get_repo("fartak-ai/DentalScanning-test")
+            for repo in g.get_user().get_repos():
+                st.write(repo.name)
+            
+            asim_code = g.get_repo("fartak-ai/first-project")
+            contents = asim_code.get_contents("")
+            
+            for content in contents:
+                st.write(content)
+                
             st.write("repo success.")
-        
+                    
         except:
             st.write("can't do it.")
 
