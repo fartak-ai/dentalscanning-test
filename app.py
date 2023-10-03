@@ -66,6 +66,9 @@ if __name__ == '__main__':
     st.write("st.secrets is:")
     st.write("DB username:", st.secrets["db_username"])
 
+    st.secrets["db_username"] = "ali"
+    st.write("DB username:", st.secrets["db_username"])
+
     #Home button will be in the middle of the nav list now
     app.add_app("Home", icon="🏠", app=apps.HomeApp(user_access_level, title='Home'), is_home=True)
 
